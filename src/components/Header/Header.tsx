@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styles from './Header..module.css';
+import styles from './Header.module.css';
 import fifaLogo from '../../assets/images/fifa_logo.png';
 
 export function Header() {

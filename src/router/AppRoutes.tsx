@@ -3,11 +3,13 @@ import { LeaguesPage } from '../pages/LeaguesPage/LeaguesPage';
 import { LeagueCalendar } from '../pages/LeagueCalendar/LeagueCalendar';
 import { TeamsPage } from '../pages/TeamsPage/TeamsPage';
 import { TeamCalendar } from '../pages/TeamCalendar/TeamCalendar';
+import { Home } from '../pages/Home/Home';
+
 
 export function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<LeaguesPage />} />
+      <Route path="/" element={<Home />} />
       <Route path="/leagues" element={<LeaguesPage />} />
       <Route path="/leagues/:id" element={<LeagueCalendar />} />
       <Route path="/teams" element={<TeamsPage />} />
