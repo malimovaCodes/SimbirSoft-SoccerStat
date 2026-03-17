@@ -1,6 +1,8 @@
-import { Pagination, Skeleton } from 'antd';
+import { Pagination, Skeleton, Typography, Row, Alert, Empty } from 'antd';
 import type { ReactElement, ReactNode } from 'react';
 import styles from './PaginatedList.module.css';
+
+const { Title } = Typography;
 
 interface PaginatedListProps<T> {
   items: T[];
@@ -37,12 +39,12 @@ export function PaginatedList<T>({
   if (loading) {
     return (
       <div className={styles['paginated-list']}>
-        <h1>{title}</h1>
-        <div className={styles['list-grid']}>
+        <Title level={1}>{title}</Title>
+        <Row gutter={[16, 16]} className={styles['list-grid']}>
           {Array.from({ length: itemsPerPage }).map((_, i) => (
             <Skeleton.Node key={i} active style={{ width: '100%', height: 200 }} />
           ))}
-        </div>
+        </Row>
       </div>
     );
   }
@@ -50,8 +52,13 @@ export function PaginatedList<T>({
   if (error) {
     return (
       <div className={styles['paginated-list']}>
-        <h1>{title}</h1>
-        <div className={styles['error']}>{error}</div>
+        <Title level={1}>{title}</Title>
+        <Alert 
+          description={error} 
+          type="error" 
+          showIcon 
+          className={styles['error']}
+        />
       </div>
     );
   }
@@ -59,23 +66,26 @@ export function PaginatedList<T>({
   if (items.length === 0) {
     return (
       <div className={styles['paginated-list']}>
-        <h1>{title}</h1>
-        <div className={styles['no-results']}>{emptyMessage}</div>
+        <Title level={1}>{title}</Title>
+        <Empty 
+          description={emptyMessage} 
+          className={styles['no-results']}
+        />
       </div>
     );
   }
 
   return (
     <div className={styles['paginated-list']}>
-      <h1>{title}</h1>
+      <Title level={1}>{title}</Title>
       
       {children ? (
         children
       ) : (
         renderItem && (
-          <ul className={styles['list-grid']}>
+          <div className={styles['list-grid']}>
             {items.map(renderItem)}
-          </ul>
+          </div>
         )
       )}
 

@@ -2,7 +2,7 @@ import { useApi } from '../../hooks/useApi';
 import type { TeamsResponse, Team } from '../../models/types';
 import styles from './TeamsPage.module.css';
 import { Search } from '../../components/Search/Search';
-import { Card } from '../../components/Card/Card';
+import { SportCard } from '../../components/Card/SportCard';
 import { PaginatedList } from '../../components/PaginatedList/PaginatedList';
 import { usePaginatedSearch } from '../../hooks/usePaginatedSearch';
 import { ITEMS_PER_PAGE_TEAMS } from '../../constants/constants';
@@ -27,7 +27,7 @@ export function TeamsPage() {
   const renderTeamCard = (team: Team) => {
     const imageUrl = team.crest?.trim() || null;
     return (
-      <Card
+      <SportCard
         key={team.id}
         id={team.id}
         name={team.name}

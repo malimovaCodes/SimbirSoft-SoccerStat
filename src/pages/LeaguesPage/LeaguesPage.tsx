@@ -2,7 +2,7 @@ import { useApi } from '../../hooks/useApi';
 import type { CompetitionsResponse, Competition } from '../../models/types';
 import styles from './LeaguesPage.module.css';
 import { ITEMS_PER_PAGE_LEAGUES } from '../../constants/constants';
-import { Card } from '../../components/Card/Card';
+import { SportCard } from '../../components/Card/SportCard';
 import { PaginatedList } from '../../components/PaginatedList/PaginatedList';
 import { Search } from '../../components/Search/Search';
 import { usePaginatedSearch } from '../../hooks/usePaginatedSearch';
@@ -27,7 +27,7 @@ export function LeaguesPage() {
   const renderLeagueCard = (league: Competition) => {
     const imageUrl = league.emblem?.trim() || league.area?.flag?.trim() || null;
     return (
-      <Card
+      <SportCard
         key={league.id}
         id={league.id}
         name={league.name}

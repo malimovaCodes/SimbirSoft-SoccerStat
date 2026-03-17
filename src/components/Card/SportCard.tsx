@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { Card, Typography } from 'antd';
 import type { CardProps } from '../../models/types';
-import styles from './Card.module.css';
+import styles from './SportCard.module.css';
 
-export function Card({ 
+const { Title, Text } = Typography;
+
+export function SportCard({ 
   name, 
   imageUrl, 
   subtitle, 
@@ -11,7 +14,7 @@ export function Card({
 }: CardProps) {
   return (
     <li className={styles['sport-card']}>
-      <Link to={linkTo}>
+      <Link to={linkTo} className={styles['card-link']}>
         <div className={styles['sport-image-container']}>
           {imageUrl ? (
             <img src={imageUrl} alt={name} className={styles['sport-logo']} />
@@ -19,9 +22,15 @@ export function Card({
             <div className={styles['sport-logo-placeholder']}>{placeholderIcon}</div>
           )}
         </div>
-
-        <h3>{name}</h3>
-        {subtitle && <p>{subtitle}</p>}
+          <Title level={5} className={styles['sport-name']} ellipsis={{ rows: 2 }}>
+            {name}
+          </Title>
+          {subtitle && (
+            <Text type="secondary" className={styles['sport-subtitle']}>
+              {subtitle}
+            </Text>
+          )}
+        
       </Link>
     </li>
   );
