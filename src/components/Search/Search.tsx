@@ -20,7 +20,6 @@ export function Search({
     <div className={styles['search-component']}>
       <Input
         placeholder={placeholder}
-        prefix={<SearchOutlined className={styles['search-icon']} />}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         allowClear

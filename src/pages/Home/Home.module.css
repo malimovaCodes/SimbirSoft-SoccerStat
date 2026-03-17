@@ -12,7 +12,7 @@
 
 .home-link {
   padding: 8px 14px;
-  border: 1px solid #d9d9d9;
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   text-decoration: none;
 }
