@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Card, Typography } from 'antd';
+import { Typography } from 'antd';
 import type { CardProps } from '../../models/types';
 import styles from './SportCard.module.css';
 
