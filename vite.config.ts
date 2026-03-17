@@ -10,7 +10,7 @@ dotenv.config({ path: resolve(__dirname, '.env') })
 
 export default defineConfig({
   plugins: [react()],
-  base: '/SimbirSoft-SoccerStat/',
+  base: process.env.VITE_APP_BASE_PATH || '/',
   build: {
     outDir: 'dist',
   },
