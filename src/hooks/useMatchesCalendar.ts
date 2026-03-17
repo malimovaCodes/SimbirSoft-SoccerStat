@@ -5,7 +5,7 @@ import { useApi } from './useApi';
 
 interface UseMatchesCalendarOptions {
   endpoint: string; 
-  dependencies?: any[]; 
+  dependencies?: unknown[]; 
 }
 
 export function useMatchesCalendar({ endpoint, dependencies = [] }: UseMatchesCalendarOptions) {
