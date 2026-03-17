@@ -61,6 +61,7 @@ export function MatchesCalendar({
       dataIndex: 'utcDate',
       key: 'date',
       width: 120,
+      fixed: 'left',
       render: (utcDate: string) => formatDateTime(utcDate).date,
     },
     {
@@ -84,6 +85,7 @@ export function MatchesCalendar({
     {
       title: 'Команды',
       key: 'teams',
+      ellipsis: true, 
       render: (_: unknown, match: Match) => (
         <>
           <span className={styles[highlightTeamId && match.homeTeam?.id === highlightTeamId ? 'highlight-team' : '']}>
@@ -126,6 +128,7 @@ export function MatchesCalendar({
               setCurrentPage(1);
             }}
             danger
+            size="small" 
           >
             Сбросить
           </Button>
@@ -134,12 +137,13 @@ export function MatchesCalendar({
 
       <Divider />
 
-      <div className={styles['matches-table-container']}>
+      <div className={styles['table-wrapper']}>
         <Table
           columns={columns}
           dataSource={data.matches}
           rowKey="id"
           loading={loading}
+          scroll={{ x: 600 }} 
           pagination={{
             pageSize: ITEMS_PER_PAGE_CALENDAR,
             current: currentPage,
@@ -152,7 +156,8 @@ export function MatchesCalendar({
             showTotal: (total) =>
               `Страница ${currentPage} из ${Math.ceil(total / ITEMS_PER_PAGE_CALENDAR)} (всего: ${total})`,
           }}
-          size="middle"
+          size="small" 
+          className={styles['matches-table']}
         />
       </div>
     </div>
