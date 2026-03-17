@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom';
-import { useState, type ReactElement } from 'react';
 import { useApi } from '../../hooks/useApi';
 import type { CompetitionsResponse, Competition } from '../../models/interfaces';
 import './LeaguesPage.css';
-import { ITEMS_PER_PAGE } from '../../constants/constants';
+import { ITEMS_PER_PAGE_LEAGUES } from '../../constants/constants';
 import { Card } from '../../components/Card/Card';
 import { PaginatedList } from '../../components/PaginatedList/PaginatedList';
 import { Search } from '../../components/Search/Search';
@@ -20,12 +18,11 @@ export function LeaguesPage() {
     currentPage,
     totalPages,
     goToPage,
-    getPageNumbers,
     isSearching,
   } = usePaginatedSearch<Competition>({
     items: data?.competitions || [],
     searchFields: (league) => [league.name, league.area?.name || ''].filter(Boolean),
-    itemsPerPage: ITEMS_PER_PAGE,
+    itemsPerPage: ITEMS_PER_PAGE_LEAGUES,
   });
 
   const renderLeagueCard = (league: Competition) => {
@@ -38,7 +35,7 @@ export function LeaguesPage() {
         imageUrl={imageUrl}
         subtitle={league.area?.name || 'Не указано'}
         linkTo={`/leagues/${league.id}`}
-        placeholderIcon="🏆"
+        placeholderIcon=""
       />
     );
   };
@@ -62,11 +59,10 @@ export function LeaguesPage() {
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={goToPage}
-        getPageNumbers={getPageNumbers}
-        totalItems={data?.competitions?.length || 0}
-        itemsPerPage={ITEMS_PER_PAGE}
+        totalItems={data?.count || 0}
+        itemsPerPage={ITEMS_PER_PAGE_LEAGUES}
         title="Лиги и соревнования"
-        emptyMessage="Лиги не найдены"
+        emptyMessage="Ничего не найдено"
       />
     </div>
   );

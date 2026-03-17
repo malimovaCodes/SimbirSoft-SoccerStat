@@ -1,17 +1,11 @@
-import { useEffect, useState, type ReactElement } from 'react';
-import { Link } from 'react-router-dom';
-import { Pagination, Skeleton } from 'antd';
 import { useApi } from '../../hooks/useApi';
 import type { TeamsResponse, Team } from '../../models/interfaces';
 import './TeamsPage.css';
 import { Search } from '../../components/Search/Search';
-import { useDebounce } from '../../hooks/useDebounce';
 import { Card } from '../../components/Card/Card';
 import { PaginatedList } from '../../components/PaginatedList/PaginatedList';
 import { usePaginatedSearch } from '../../hooks/usePaginatedSearch';
-
-
-const ITEMS_PER_PAGE = 16;
+import { ITEMS_PER_PAGE_TEAMS } from '../../constants/constants';
 
 export function TeamsPage() {
   const { data, loading, error } = useApi<TeamsResponse>('/teams');
@@ -23,12 +17,11 @@ export function TeamsPage() {
     currentPage,
     totalPages,
     goToPage,
-    getPageNumbers,
     isSearching,
   } = usePaginatedSearch<Team>({
     items: data?.teams || [],
     searchFields: (team) => [team.name || ''].filter(Boolean),
-    itemsPerPage: ITEMS_PER_PAGE,
+    itemsPerPage: ITEMS_PER_PAGE_TEAMS,
   });
 
   const renderTeamCard = (team: Team) => {
@@ -40,7 +33,7 @@ export function TeamsPage() {
         name={team.name}
         imageUrl={imageUrl}
         linkTo={`/teams/${team.id}`}
-        placeholderIcon="⚽"
+        placeholderIcon=""
       />
     );
   };
@@ -58,17 +51,16 @@ export function TeamsPage() {
 
       <PaginatedList
         items={currentItems}
-        renderItem={renderTeamCard}
+        renderItem={renderTeamCard} 
         loading={loading}
         error={error}
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={goToPage}
-        getPageNumbers={getPageNumbers}
-        totalItems={data?.teams?.length || 0}
-        itemsPerPage={ITEMS_PER_PAGE}
+        totalItems={data?.count || 0}
+        itemsPerPage={ITEMS_PER_PAGE_TEAMS}
         title="Команды"
-        emptyMessage="Команды не найдены"
+        emptyMessage="Ничего не найдено"
       />
     </div>
   );

@@ -1,17 +1,17 @@
 import { Pagination, Skeleton } from 'antd';
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import './PaginatedList.css';
 
 interface PaginatedListProps<T> {
   items: T[];
-  renderItem: (item: T) => ReactElement;
+  renderItem?: (item: T) => ReactElement; 
+  children?: ReactNode; 
   loading: boolean;
   error: string | null;
   
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
-  getPageNumbers: () => (number | string)[];
   totalItems: number;
   itemsPerPage: number;
   
@@ -22,12 +22,12 @@ interface PaginatedListProps<T> {
 export function PaginatedList<T>({
   items,
   renderItem,
+  children,
   loading,
   error,
   currentPage,
   totalPages,
   onPageChange,
-  getPageNumbers,
   totalItems,
   itemsPerPage,
   title,
@@ -39,7 +39,7 @@ export function PaginatedList<T>({
       <div className="paginated-list">
         <h1>{title}</h1>
         <div className="list-grid">
-          {Array.from({ length: 16 }).map((_, i) => (
+          {Array.from({ length: itemsPerPage }).map((_, i) => (
             <Skeleton.Node key={i} active style={{ width: '100%', height: 200 }} />
           ))}
         </div>
@@ -51,7 +51,7 @@ export function PaginatedList<T>({
     return (
       <div className="paginated-list">
         <h1>{title}</h1>
-        <div className="error">❌ {error}</div>
+        <div className="error">{error}</div>
       </div>
     );
   }
@@ -69,19 +69,25 @@ export function PaginatedList<T>({
     <div className="paginated-list">
       <h1>{title}</h1>
       
-      <ul className="list-grid">
-        {items.map(renderItem)}
-      </ul>
+      {children ? (
+        children
+      ) : (
+        renderItem && (
+          <ul className="list-grid">
+            {items.map(renderItem)}
+          </ul>
+        )
+      )}
 
       {totalPages > 1 && (
         <Pagination
           current={currentPage}
-          pageSize={itemsPerPage} 
+          pageSize={itemsPerPage}
           total={totalItems}
           onChange={onPageChange}
-          showSizeChanger={false} 
-          showQuickJumper={false} 
-          showTotal={(total) => 
+          showSizeChanger={false}
+          showQuickJumper={false}
+          showTotal={(total) =>
             `Страница ${currentPage} из ${totalPages} (всего: ${total})`
           }
           className="custom-pagination"
