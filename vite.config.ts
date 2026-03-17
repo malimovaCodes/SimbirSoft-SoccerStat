@@ -11,7 +11,6 @@ dotenv.config({ path: resolve(__dirname, '.env') })
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.VITE_APP_BASE_PATH || '/',
   build: {
     outDir: 'dist',
   },
@@ -19,5 +18,18 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: process.env.FOOTBALL_DATA_API_BASE_URL,
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+        headers: {
+          'X-Auth-Token': process.env.VITE_API_KEY?.trim() || ''
+        }
+      }
+    }
   }
 })
