@@ -1,24 +1,24 @@
 import { NavLink } from 'react-router-dom';
-import './Header.css';
+import styles from './Header..module.css';
 import fifaLogo from '../../assets/images/fifa_logo.png';
 
 export function Header() {
     return (
-        <header className="main-header">
-            <div className="header-container">
-                <div className="header-logo">
-                    <NavLink to="/" aria-label="На главную" className="header-logo-link">
+        <header className={styles['main-header']}>
+            <div className={styles['header-container']}>
+                <div className={styles['header-logo']}>
+                    <NavLink to="/" aria-label="На главную" className={styles['header-logo-link']}>
                         <img
                             src={fifaLogo}
                             alt="FIFA"
                             width={120}
                             height={40}
-                            className="header-logo-img"
+                            className={styles['header-logo-img']}
                         />
                     </NavLink>
                 </div>
 
-                <nav className="header-nav">
+                <nav className={styles['header-nav']}>
                     <NavLink
                         to="/leagues"
                         className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}

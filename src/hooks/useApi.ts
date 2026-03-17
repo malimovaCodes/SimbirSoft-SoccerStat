@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import api from '../services/api';
+import api from '../api/api';
 import type { UseApiResult } from '../models/types';
 
 export function useApi<T>(endpoint: string, dependencies: any[] = []): UseApiResult<T> {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { CardProps } from '../../models/types';
-import './Card.css';
+import styles from './Card.module.css';
 
 export function Card({ 
   name, 
@@ -10,13 +10,13 @@ export function Card({
   placeholderIcon 
 }: CardProps) {
   return (
-    <li className="sport-card">
+    <li className={styles['sport-card']}>
       <Link to={linkTo}>
-        <div className="sport-image-container">
+        <div className={styles['sport-image-container']}>
           {imageUrl ? (
-            <img src={imageUrl} alt={name} className="sport-logo" />
+            <img src={imageUrl} alt={name} className={styles['sport-logo']} />
           ) : (
-            <div className="sport-logo-placeholder">{placeholderIcon}</div>
+            <div className={styles['sport-logo-placeholder']}>{placeholderIcon}</div>
           )}
         </div>
 

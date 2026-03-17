@@ -1,6 +1,6 @@
 import { useApi } from '../../hooks/useApi';
 import type { TeamsResponse, Team } from '../../models/types';
-import './TeamsPage.css';
+import styles from './TeamsPage.module.css';
 import { Search } from '../../components/Search/Search';
 import { Card } from '../../components/Card/Card';
 import { PaginatedList } from '../../components/PaginatedList/PaginatedList';
@@ -39,8 +39,8 @@ export function TeamsPage() {
   };
 
   return (
-    <div className="teams-page">
-      <div className="page-search">
+    <div className={styles['teams-page']}>
+      <div className={styles['page-search']}>
         <Search
           value={searchQuery}
           onChange={setSearchQuery}

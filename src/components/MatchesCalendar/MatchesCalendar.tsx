@@ -4,7 +4,7 @@ import type { ColumnsType } from 'antd/es/table';
 import type { Match } from '../../models/types';
 import { useMatchesCalendar } from '../../hooks/useMatchesCalendar';
 import { ITEMS_PER_PAGE_CALENDAR, STATUS_TRANSLATIONS } from '../../constants/constants';
-import './MatchesCalendar.css';
+import styles from './MatchesCalendar.module.css';
 
 const { RangePicker } = DatePicker;
 
@@ -44,15 +44,15 @@ export function MatchesCalendar({
 
   if (error?.includes('403')) {
     return (
-      <div className="calendar-error">
+      <div className={styles['calendar-error']}>
         <p>{errorMessages.forbidden}</p>
         <Link to={errorMessages.backPath}>← {errorMessages.backLink}</Link>
       </div>
     );
   }
 
-  if (error) return <div className="calendar-error">❌ {error}</div>;
-  if (loading) return <div className="loader">Загрузка календаря...</div>;
+  if (error) return <div className={styles['calendar-error']}>{error}</div>;
+  if (loading) return <div className={styles['loader']}>Загрузка календаря...</div>;
   if (!data?.matches) return <div>Загрузка...</div>;
 
   const columns: ColumnsType<Match> = [
@@ -76,7 +76,7 @@ export function MatchesCalendar({
       key: 'status',
       width: 140,
       render: (status: string) => (
-        <span className={getStatusClass(status)}>
+        <span className={styles[getStatusClass(status)]}>
           {STATUS_TRANSLATIONS[status] || status}
         </span>
       ),
@@ -86,11 +86,11 @@ export function MatchesCalendar({
       key: 'teams',
       render: (_: unknown, match: Match) => (
         <>
-          <span className={highlightTeamId && match.homeTeam?.id === highlightTeamId ? 'highlight-team' : ''}>
+          <span className={styles[highlightTeamId && match.homeTeam?.id === highlightTeamId ? 'highlight-team' : '']}>
             {match.homeTeam?.name}
           </span>
           {' - '}
-          <span className={highlightTeamId && match.awayTeam?.id === highlightTeamId ? 'highlight-team' : ''}>
+          <span className={styles[highlightTeamId && match.awayTeam?.id === highlightTeamId ? 'highlight-team' : '']}>
             {match.awayTeam?.name}
           </span>
         </>
@@ -106,12 +106,12 @@ export function MatchesCalendar({
   ];
 
   return (
-    <div className="matches-calendar-page">
-      <Breadcrumb separator="›" items={breadcrumbItems} className="calendar-breadcrumb" />
+    <div className={styles['matches-calendar-page']}>
+      <Breadcrumb separator="›" items={breadcrumbItems} className={styles['calendar-breadcrumb']} />
       
       <Divider />
 
-      <Space wrap className="date-filter">
+      <Space wrap className={styles['date-filter']}>
         <RangePicker
           value={dates}
           onChange={handleDateChange}
@@ -134,7 +134,7 @@ export function MatchesCalendar({
 
       <Divider />
 
-      <div className="matches-table-container">
+      <div className={styles['matches-table-container']}>
         <Table
           columns={columns}
           dataSource={data.matches}

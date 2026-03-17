@@ -1,6 +1,6 @@
 import { Input } from 'antd';
 import { SearchOutlined, LoadingOutlined } from '@ant-design/icons';
-import './Search.css';
+import styles from './Search.module.css';
 
 interface SearchProps {
   value: string;
@@ -17,14 +17,14 @@ export function Search({
   placeholder = 'Search' 
 }: SearchProps) {
   return (
-    <div className="search-component">
+    <div className={styles['search-component']}>
       <Input
         placeholder={placeholder}
-        prefix={<SearchOutlined className="search-icon" />}
+        prefix={<SearchOutlined className={styles['search-icon']} />}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         allowClear
-        className="search-input"
+        className={styles['search-input']}
         suffix={isLoading ? <LoadingOutlined /> : <SearchOutlined />}
       />
     </div>

@@ -1,12 +1,11 @@
 import { useApi } from '../../hooks/useApi';
 import type { CompetitionsResponse, Competition } from '../../models/types';
-import './LeaguesPage.css';
+import styles from './LeaguesPage.module.css';
 import { ITEMS_PER_PAGE_LEAGUES } from '../../constants/constants';
 import { Card } from '../../components/Card/Card';
 import { PaginatedList } from '../../components/PaginatedList/PaginatedList';
 import { Search } from '../../components/Search/Search';
 import { usePaginatedSearch } from '../../hooks/usePaginatedSearch';
-
 
 export function LeaguesPage() {
   const { data, loading, error } = useApi<CompetitionsResponse>('/competitions');
@@ -41,8 +40,8 @@ export function LeaguesPage() {
   };
 
   return (
-    <div className="leagues-page">
-      <div className="page-search">
+    <div className={styles['leagues-page']}>
+      <div className={styles['page-search']}>
         <Search
           value={searchQuery}
           onChange={setSearchQuery}

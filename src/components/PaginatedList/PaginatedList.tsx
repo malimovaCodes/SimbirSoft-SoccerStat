@@ -1,6 +1,6 @@
 import { Pagination, Skeleton } from 'antd';
 import type { ReactElement, ReactNode } from 'react';
-import './PaginatedList.css';
+import styles from './PaginatedList.module.css';
 
 interface PaginatedListProps<T> {
   items: T[];
@@ -36,9 +36,9 @@ export function PaginatedList<T>({
   
   if (loading) {
     return (
-      <div className="paginated-list">
+      <div className={styles['paginated-list']}>
         <h1>{title}</h1>
-        <div className="list-grid">
+        <div className={styles['list-grid']}>
           {Array.from({ length: itemsPerPage }).map((_, i) => (
             <Skeleton.Node key={i} active style={{ width: '100%', height: 200 }} />
           ))}
@@ -49,31 +49,31 @@ export function PaginatedList<T>({
 
   if (error) {
     return (
-      <div className="paginated-list">
+      <div className={styles['paginated-list']}>
         <h1>{title}</h1>
-        <div className="error">{error}</div>
+        <div className={styles['error']}>{error}</div>
       </div>
     );
   }
 
   if (items.length === 0) {
     return (
-      <div className="paginated-list">
+      <div className={styles['paginated-list']}>
         <h1>{title}</h1>
-        <div className="no-results">{emptyMessage}</div>
+        <div className={styles['no-results']}>{emptyMessage}</div>
       </div>
     );
   }
 
   return (
-    <div className="paginated-list">
+    <div className={styles['paginated-list']}>
       <h1>{title}</h1>
       
       {children ? (
         children
       ) : (
         renderItem && (
-          <ul className="list-grid">
+          <ul className={styles['list-grid']}>
             {items.map(renderItem)}
           </ul>
         )
@@ -90,7 +90,7 @@ export function PaginatedList<T>({
           showTotal={(total) =>
             `Страница ${currentPage} из ${totalPages} (всего: ${total})`
           }
-          className="custom-pagination"
+          className={styles['custom-pagination']}
         />
       )}
     </div>

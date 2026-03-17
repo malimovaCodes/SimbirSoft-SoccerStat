@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { Header } from '../Header/Header';
-import './MainLayout.css';
+import styles from './MainLayout.module.css';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -8,9 +8,9 @@ interface MainLayoutProps {
 
 export function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div className="app">
+    <div className={styles['app']}>
       <Header />
-      <main className="main-content">
+      <main className={styles['main-content']}>
         {children}
       </main>
     </div>
