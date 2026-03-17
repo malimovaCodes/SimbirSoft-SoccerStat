@@ -144,12 +144,15 @@
   .header-nav-desktop {
     display: none;
   }
+
   .mobile-menu-button {
     display: block;
   }
+
   .header-container {
     gap: 12px;
   }
+
   .header-logo-img,
   .header-logo img {
     max-width: 100px;
@@ -161,9 +164,11 @@
     gap: 24px;
     padding: 12px 16px;
   }
+
   .fifa-text {
     font-size: 28px;
   }
+
   .header-search {
     max-width: 250px;
   }
@@ -174,30 +179,37 @@
     padding: 0 12px;
     min-height: 56px;
   }
+
   .header-container {
     flex-wrap: wrap;
     gap: 16px;
     padding: 12px;
   }
+
   .fifa-text {
     font-size: 24px;
   }
+
   .header-nav {
     gap: 16px;
   }
+
   .nav-link {
     font-size: 14px;
   }
+
   .header-search {
     order: 3;
     width: 100%;
     max-width: 100%;
     margin-left: 0;
   }
+
   .search-input .ant-input {
     font-size: 13px;
     padding: 6px 12px;
   }
+
   .header-logo-img,
   .header-logo img {
     max-width: 90px;
@@ -208,16 +220,20 @@
   .header-container {
     padding: 8px;
   }
+
   .fifa-text {
     font-size: 20px;
   }
+
   .header-nav {
     gap: 12px;
   }
+
   .nav-link {
     font-size: 13px;
     padding: 6px 2px;
   }
+
   .header-logo-img,
   .header-logo img {
     max-width: 80px;
@@ -228,6 +244,7 @@
   .main-header {
     min-height: 56px;
   }
+
   .header-logo-img,
   .header-logo img {
     max-width: 90px;

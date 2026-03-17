@@ -1,20 +1,13 @@
 import { Input } from 'antd';
 import { SearchOutlined, LoadingOutlined } from '@ant-design/icons';
 import styles from './Search.module.css';
+import type { SearchProps } from '../../models/searchProps.types';
 
-interface SearchProps {
-  value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-  debounceDelay?: number;
-  isLoading?: boolean;
-}
-
-export function Search({ 
+export function Search({
   isLoading = false,
-  value, 
-  onChange, 
-  placeholder = 'Search' 
+  value,
+  onChange,
+  placeholder = 'Search'
 }: SearchProps) {
   return (
     <div className={styles['search-component']}>

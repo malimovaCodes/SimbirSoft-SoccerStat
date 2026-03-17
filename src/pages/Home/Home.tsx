@@ -9,7 +9,7 @@ export function Home() {
       <Title level={1}>
         Добро пожаловать в Soccer Stat!
       </Title>
-      
+
       <Paragraph>
         Выберите раздел из меню
       </Paragraph>

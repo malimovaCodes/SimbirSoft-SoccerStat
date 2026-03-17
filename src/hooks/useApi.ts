@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import api from '../api/api';
 import axios from 'axios';
-import type { UseApiResult } from '../models/types';
+import type { UseApiResult } from '../models/apiResult.types';
 
 export function useApi<T>(endpoint: string, dependencies: unknown[] = []): UseApiResult<T> {
     const [data, setData] = useState<T | null>(null);

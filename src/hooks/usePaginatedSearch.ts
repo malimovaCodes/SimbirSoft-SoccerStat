@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useDebounce } from './useDebounce';
 
 interface UsePaginatedSearchOptions<T> {
-  items: T[]; 
-  searchFields: (item: T) => string[]; 
+  items: T[];
+  searchFields: (item: T) => string[];
   itemsPerPage: number;
 }
 
@@ -15,7 +15,7 @@ export function usePaginatedSearch<T>({
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [isSearching, setIsSearching] = useState(false);
-  
+
   const debouncedQuery = useDebounce(searchQuery, 300);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function usePaginatedSearch<T>({
   const filteredItems = items.filter((item) => {
     const query = debouncedQuery.toLowerCase().trim();
     if (!query) return true;
-    
+
     return searchFields(item).some((field) =>
       field.toLowerCase().includes(query)
     );
@@ -78,10 +78,10 @@ export function usePaginatedSearch<T>({
     currentPage,
     totalPages,
     isSearching,
-    
+
     filteredItems,
     currentItems,
-    
+
     setSearchQuery,
     goToPage,
     getPageNumbers,

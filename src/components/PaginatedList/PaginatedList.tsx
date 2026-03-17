@@ -1,25 +1,8 @@
 import { Pagination, Skeleton, Typography, Row, Alert, Empty } from 'antd';
-import type { ReactElement, ReactNode } from 'react';
+import type { PaginatedListProps } from '../../models/paginatedListProps.types';
 import styles from './PaginatedList.module.css';
 
 const { Title } = Typography;
-
-interface PaginatedListProps<T> {
-  items: T[];
-  renderItem?: (item: T) => ReactElement; 
-  children?: ReactNode; 
-  loading: boolean;
-  error: string | null;
-  
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-  totalItems: number;
-  itemsPerPage: number;
-  
-  title: string;
-  emptyMessage?: string;
-}
 
 export function PaginatedList<T>({
   items,
@@ -35,7 +18,7 @@ export function PaginatedList<T>({
   title,
   emptyMessage = 'Ничего не найдено',
 }: PaginatedListProps<T>) {
-  
+
   if (loading) {
     return (
       <div className={styles['paginated-list']}>
@@ -53,10 +36,10 @@ export function PaginatedList<T>({
     return (
       <div className={styles['paginated-list']}>
         <Title level={1}>{title}</Title>
-        <Alert 
-          description={error} 
-          type="error" 
-          showIcon 
+        <Alert
+          description={error}
+          type="error"
+          showIcon
           className={styles['error']}
         />
       </div>
@@ -67,8 +50,8 @@ export function PaginatedList<T>({
     return (
       <div className={styles['paginated-list']}>
         <Title level={1}>{title}</Title>
-        <Empty 
-          description={emptyMessage} 
+        <Empty
+          description={emptyMessage}
           className={styles['no-results']}
         />
       </div>
@@ -78,7 +61,7 @@ export function PaginatedList<T>({
   return (
     <div className={styles['paginated-list']}>
       <Title level={1}>{title}</Title>
-      
+
       {children ? (
         children
       ) : (

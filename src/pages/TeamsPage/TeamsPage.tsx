@@ -1,5 +1,5 @@
 import { useApi } from '../../hooks/useApi';
-import type { TeamsResponse, Team } from '../../models/types';
+import type { TeamsResponse, Team } from '../../models/team.types';
 import styles from './TeamsPage.module.css';
 import { Search } from '../../components/Search/Search';
 import { SportCard } from '../../components/Card/SportCard';
@@ -51,7 +51,7 @@ export function TeamsPage() {
 
       <PaginatedList
         items={currentItems}
-        renderItem={renderTeamCard} 
+        renderItem={renderTeamCard}
         loading={loading}
         error={error}
         currentPage={currentPage}

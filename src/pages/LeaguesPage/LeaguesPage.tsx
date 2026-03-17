@@ -1,5 +1,5 @@
 import { useApi } from '../../hooks/useApi';
-import type { CompetitionsResponse, Competition } from '../../models/types';
+import type { CompetitionsResponse, Competition } from '../../models/competition.types';
 import styles from './LeaguesPage.module.css';
 import { ITEMS_PER_PAGE_LEAGUES } from '../../constants/constants';
 import { SportCard } from '../../components/Card/SportCard';

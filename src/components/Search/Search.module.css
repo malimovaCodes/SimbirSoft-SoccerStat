@@ -5,7 +5,7 @@
 
 .search-input .ant-input {
   border-radius: 8px;
-  border: 1px solid #d0d0d0;
+  border: 1px solid var(--color-border);
   padding: 8px 16px;
   font-size: 14px;
   transition: all 0.2s ease;
@@ -16,7 +16,7 @@
 
 .search-input .ant-input:hover,
 .search-input .ant-input:focus {
-  border-color: #007bff;
+  border-color: var(--color-accent);
 }
 
 .search-input .ant-input:focus {
