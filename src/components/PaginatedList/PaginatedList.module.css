@@ -32,10 +32,14 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.error { color: #d32f2f; }
-.no-results { color: #666; }
+.error {
+  color: #d32f2f;
+}
 
-/* Пагинация */
+.no-results {
+  color: #666;
+}
+
 .pagination {
   display: flex;
   align-items: center;
@@ -46,7 +50,8 @@
   flex-wrap: wrap;
 }
 
-.pagination-button {
+.pagination-button,
+.pagination-number {
   width: 40px;
   height: 40px;
   border: 1px solid #d0d0d0;
@@ -55,9 +60,14 @@
   cursor: pointer;
   font-size: 16px;
   transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
 }
 
-.pagination-button:hover:not(:disabled) {
+.pagination-button:hover:not(:disabled),
+.pagination-number:hover:not(:disabled) {
   background: #f0f0f0;
   transform: translateY(-2px);
 }
@@ -67,26 +77,9 @@
   cursor: not-allowed;
 }
 
-.pagination-numbers {
-  display: flex;
-  gap: 6px;
-}
-
 .pagination-number {
-  min-width: 40px;
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid #d0d0d0;
-  background: #fff;
-  border-radius: 8px;
-  cursor: pointer;
   font-size: 14px;
-  transition: all 0.2s;
-}
-
-.pagination-number:hover:not(:disabled) {
-  background: #f0f0f0;
-  transform: translateY(-2px);
+  min-width: 40px;
 }
 
 .pagination-number.active {
@@ -103,6 +96,11 @@
   color: #999;
 }
 
+.pagination-numbers {
+  display: flex;
+  gap: 6px;
+}
+
 .pagination-info {
   text-align: center;
   margin-top: 12px;
@@ -113,17 +111,33 @@
   border-radius: 8px;
 }
 
-/* Адаптивность */
 @media (max-width: 1024px) {
-  .list-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .list-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
 }
 
 @media (max-width: 768px) {
-  .paginated-list { padding: 16px; }
-  .list-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .pagination-button, .pagination-number { width: 36px; height: 36px; font-size: 13px; }
+  .paginated-list {
+    padding: 16px;
+  }
+
+  .list-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .pagination-button,
+  .pagination-number {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 480px) {
-  .list-grid { grid-template-columns: 1fr; }
+  .list-grid {
+    grid-template-columns: 1fr;
+  }
 }

@@ -9,15 +9,19 @@
   padding: 8px 16px;
   font-size: 14px;
   transition: all 0.2s ease;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.search-input .ant-input:hover {
+.search-input .ant-input:hover,
+.search-input .ant-input:focus {
   border-color: #007bff;
 }
 
 .search-input .ant-input:focus {
-  border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
 }
 
 .search-input .search-icon {
@@ -25,10 +29,8 @@
 }
 
 @media (max-width: 768px) {
-  .search-component {
-    max-width: 100%;
-  }
-  
+  .search-component { max-width: 100%; }
+
   .search-input .ant-input {
     font-size: 13px;
     padding: 6px 12px;

@@ -1,36 +1,57 @@
 .main-header {
   background-color: #ffffff;
-  border-bottom: 2px solid #007bff; 
+  border-bottom: 2px solid #007bff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
+  padding: 0 20px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
 }
 
 .header-container {
   max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
   padding: 12px 20px;
   display: flex;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .header-logo {
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
+}
+
+.header-logo-link {
+  display: block;
+}
+
+.header-logo-img,
+.header-logo img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
 }
 
 .fifa-text {
   font-size: 32px;
   font-weight: 900;
-  color: #007bff; 
+  color: #007bff;
   letter-spacing: 1px;
   line-height: 1;
 }
 
-.header-nav {
+.header-nav,
+.header-nav-desktop {
   display: flex;
   gap: 24px;
+  margin-left: auto;
 }
 
 .nav-link {
@@ -43,10 +64,7 @@
   transition: color 0.2s ease;
 }
 
-.nav-link:hover {
-  color: #007bff;
-}
-
+.nav-link:hover,
 .nav-link.active {
   color: #007bff;
 }
@@ -63,7 +81,7 @@
 }
 
 .header-search {
-  margin-left: auto;
+  margin-left: 16px;
   flex: 1;
   max-width: 400px;
 }
@@ -87,135 +105,6 @@
 
 .search-input .search-icon {
   color: #999;
-}
-
-.header-logo {
-  display: flex;
-  align-items: center;
-}
-
-.header-logo-img {
-  width: 100%;
-  max-width: 120px;
-  height: auto;
-}
-
-@media (max-width: 1024px) {
-  .header-container {
-    gap: 24px;
-    padding: 12px 16px;
-  }
-  
-  .fifa-text {
-    font-size: 28px;
-  }
-  
-  .header-search {
-    max-width: 250px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header-container {
-    flex-wrap: wrap;
-    gap: 16px;
-    padding: 12px;
-  }
-  
-  .fifa-text {
-    font-size: 24px;
-  }
-  
-  .header-nav {
-    gap: 16px;
-  }
-  
-  .nav-link {
-    font-size: 14px;
-  }
-  
-  .header-search {
-    order: 3; 
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-  }
-  
-  .search-input .ant-input {
-    font-size: 13px;
-    padding: 6px 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-container {
-    padding: 8px;
-  }
-  
-  .fifa-text {
-    font-size: 20px;
-  }
-  
-  .header-nav {
-    gap: 12px;
-  }
-  
-  .nav-link {
-    font-size: 13px;
-    padding: 6px 2px;
-  }
-}
-
-@media (max-height: 500px) and (orientation: landscape) {
-  .header-container {
-    padding: 8px 12px;
-    gap: 16px;
-  }
-  
-  .fifa-text {
-    font-size: 22px;
-  }
-  
-  .header-search {
-    max-width: 200px;
-  }
-}
-
-
-.main-header {
-  background: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 0 20px;
-  height: auto;
-  min-height: 64px;
-  display: flex;
-  align-items: center;
-}
-
-.header-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.header-logo {
-  flex-shrink: 0;
-}
-
-.header-logo-link {
-  display: block;
-}
-
-.header-nav-desktop {
-  margin-left: auto;
-  display: block;
 }
 
 .header-menu {
@@ -251,63 +140,32 @@
   margin: 8px 0;
 }
 
-@media (max-width: 768px) {
-  .main-header {
-    padding: 0 12px;
-    min-height: 56px;
-  }
-
-  .header-container {
-    gap: 12px;
-  }
-
-  .header-logo img {
-    width: 100px;
-    height: auto;
-  }
-
-  .header-nav-desktop {
-    display: none;
-  }
-
-  .mobile-menu-button {
-    display: block;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-logo img {
-    width: 80px;
-  }
-}
-
-.header-nav-desktop {
-  margin-left: auto;
-  display: block;
-}
-
-.mobile-menu-button {
-  display: none;
-  font-size: 20px;
-  margin-left: auto;
-}
-
 @media (max-width: 1200px) {
   .header-nav-desktop {
     display: none;
   }
-  
   .mobile-menu-button {
     display: block;
   }
-  
   .header-container {
     gap: 12px;
   }
-  
+  .header-logo-img,
   .header-logo img {
-    width: 100px;
-    height: auto;
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header-container {
+    gap: 24px;
+    padding: 12px 16px;
+  }
+  .fifa-text {
+    font-size: 28px;
+  }
+  .header-search {
+    max-width: 250px;
   }
 }
 
@@ -316,15 +174,53 @@
     padding: 0 12px;
     min-height: 56px;
   }
-  
+  .header-container {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 12px;
+  }
+  .fifa-text {
+    font-size: 24px;
+  }
+  .header-nav {
+    gap: 16px;
+  }
+  .nav-link {
+    font-size: 14px;
+  }
+  .header-search {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+  .search-input .ant-input {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+  .header-logo-img,
   .header-logo img {
-    width: 90px;
+    max-width: 90px;
   }
 }
 
 @media (max-width: 480px) {
+  .header-container {
+    padding: 8px;
+  }
+  .fifa-text {
+    font-size: 20px;
+  }
+  .header-nav {
+    gap: 12px;
+  }
+  .nav-link {
+    font-size: 13px;
+    padding: 6px 2px;
+  }
+  .header-logo-img,
   .header-logo img {
-    width: 80px;
+    max-width: 80px;
   }
 }
 
@@ -332,8 +228,8 @@
   .main-header {
     min-height: 56px;
   }
-  
+  .header-logo-img,
   .header-logo img {
-    width: 90px;
+    max-width: 90px;
   }
 }

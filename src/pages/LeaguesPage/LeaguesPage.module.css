@@ -79,6 +79,7 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   min-height: 42px;
 }
@@ -90,131 +91,27 @@
   font-weight: 400;
 }
 
-.loader {
-  text-align: center;
-  padding: 60px 20px;
-  font-size: 18px;
-  color: #666;
-  background-color: #f5f5f5;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+.loader,
 .error {
   text-align: center;
   padding: 60px 20px;
   font-size: 18px;
-  color: #d32f2f;
-  background-color: #f5f5f5;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.loader {
+  color: #666;
+  background-color: #f5f5f5;
+}
+
+.error {
+  color: #d32f2f;
   background-color: #fff5f5;
   border-radius: 8px;
   margin: 20px;
-}
-
-@media (max-width: 1024px) {
-  .leagues-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  
-  .league-image-container {
-    height: 100px;
-  }
-  
-  .league-card h3 {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .leagues-page {
-    padding: 16px;
-  }
-  
-  .leagues-page h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .leagues-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  
-  .league-card {
-    padding: 16px 12px;
-    border-radius: 8px;
-  }
-  
-  .league-image-container {
-    height: 80px;
-  }
-  
-  .league-logo-placeholder {
-    font-size: 48px;
-  }
-  
-  .league-card h3 {
-    font-size: 14px;
-    min-height: 36px;
-  }
-  
-  .league-card p {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 480px) {
-  .leagues-list {
-    grid-template-columns: 1fr;
-  }
-  
-  .league-image-container {
-    height: 100px;
-  }
-  
-  .league-card h3 {
-    font-size: 16px;
-  }
-}
-
-@media (max-height: 500px) and (orientation: landscape) {
-  .leagues-page {
-    padding: 12px;
-  }
-  
-  .leagues-page h1 {
-    font-size: 20px;
-    margin-bottom: 16px;
-  }
-  
-  .leagues-list {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-  
-  .league-card {
-    padding: 12px 8px;
-  }
-  
-  .league-image-container {
-    height: 60px;
-  }
-  
-  .league-card h3 {
-    font-size: 13px;
-    min-height: 32px;
-  }
-  
-  .league-card p {
-    font-size: 12px;
-  }
 }
 
 .pagination {
@@ -227,7 +124,8 @@
   flex-wrap: wrap;
 }
 
-.pagination-button {
+.pagination-button,
+.pagination-number {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -238,55 +136,23 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   color: #333333;
   transition: all 0.2s ease;
-  padding: 0;
+  padding: 0 12px;
 }
 
-.pagination-button:hover:not(:disabled) {
+.pagination-button:hover:not(:disabled),
+.pagination-number:hover:not(:disabled) {
   background-color: #f0f0f0;
   border-color: #999999;
   transform: translateY(-2px);
-}
-
-.pagination-button:active:not(:disabled) {
-  transform: translateY(0);
 }
 
 .pagination-button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
   background-color: #f5f5f5;
-}
-
-.pagination-numbers {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.pagination-number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid #d0d0d0;
-  background-color: #ffffff;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333333;
-  transition: all 0.2s ease;
-}
-
-.pagination-number:hover:not(:disabled) {
-  background-color: #f0f0f0;
-  border-color: #999999;
-  transform: translateY(-2px);
 }
 
 .pagination-number.active {
@@ -311,6 +177,12 @@
   background: transparent;
 }
 
+.pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .pagination-info {
   text-align: center;
   margin-top: 16px;
@@ -323,11 +195,24 @@
 }
 
 @media (max-width: 1024px) {
+  .leagues-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .league-image-container {
+    height: 100px;
+  }
+
+  .league-card h3 {
+    font-size: 15px;
+  }
+
   .pagination {
     margin-top: 30px;
     gap: 6px;
   }
-  
+
   .pagination-button,
   .pagination-number {
     width: 36px;
@@ -337,71 +222,150 @@
 }
 
 @media (max-width: 768px) {
+  .leagues-page {
+    padding: 16px;
+  }
+
+  .leagues-page h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .leagues-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .league-card {
+    padding: 16px 12px;
+    border-radius: 8px;
+  }
+
+  .league-image-container {
+    height: 80px;
+  }
+
+  .league-logo-placeholder {
+    font-size: 48px;
+  }
+
+  .league-card h3 {
+    font-size: 14px;
+    min-height: 36px;
+  }
+
+  .league-card p {
+    font-size: 13px;
+  }
+
   .pagination {
     margin-top: 24px;
     gap: 4px;
   }
-  
+
   .pagination-button {
     width: 32px;
     height: 32px;
     font-size: 14px;
   }
-  
+
   .pagination-number {
     min-width: 32px;
     height: 32px;
     padding: 0 8px;
     font-size: 13px;
   }
-  
+
   .pagination-info {
     font-size: 12px;
     margin-top: 12px;
     padding: 8px 16px;
   }
-  
+
   .pagination-numbers {
     gap: 4px;
   }
 }
 
 @media (max-width: 480px) {
+  .leagues-list {
+    grid-template-columns: 1fr;
+  }
+
+  .league-image-container {
+    height: 100px;
+  }
+
+  .league-card h3 {
+    font-size: 16px;
+  }
+
   .pagination {
     gap: 3px;
   }
-  
+
   .pagination-button {
     width: 28px;
     height: 28px;
     font-size: 12px;
   }
-  
+
   .pagination-number {
     min-width: 28px;
     height: 28px;
     padding: 0 6px;
     font-size: 12px;
   }
-  
+
   .pagination-number:not(.active):not(:first-child):not(:last-child) {
     display: none;
   }
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
+  .leagues-page {
+    padding: 12px;
+  }
+
+  .leagues-page h1 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .leagues-list {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .league-card {
+    padding: 12px 8px;
+  }
+
+  .league-image-container {
+    height: 60px;
+  }
+
+  .league-card h3 {
+    font-size: 13px;
+    min-height: 32px;
+  }
+
+  .league-card p {
+    font-size: 12px;
+  }
+
   .pagination {
     margin-top: 16px;
     padding: 12px 0;
   }
-  
+
   .pagination-button,
   .pagination-number {
     width: 28px;
     height: 28px;
     font-size: 12px;
   }
-  
+
   .pagination-info {
     font-size: 11px;
     margin-top: 8px;

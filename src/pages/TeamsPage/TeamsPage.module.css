@@ -22,9 +22,9 @@
 }
 
 .team-link {
-  text-decoration: none;
-  color: inherit;
   display: block;
+  color: inherit;
+  text-decoration: none;
 }
 
 .team-card {
@@ -60,6 +60,7 @@
 .team-logo-placeholder {
   font-size: 64px;
   color: #999;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -71,6 +72,7 @@
   min-height: 42px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -135,11 +137,11 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
-  
+
   .team-logo-container {
     height: 100px;
   }
-  
+
   .team-name {
     font-size: 15px;
     min-height: 38px;
@@ -150,38 +152,38 @@
   .teams-page {
     padding: 16px;
   }
-  
+
   .page-title {
     font-size: 24px;
     margin-bottom: 20px;
   }
-  
+
   .teams-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
-  
+
   .team-card {
     border-radius: 8px;
   }
-  
+
   .team-logo-container {
     height: 80px;
   }
-  
+
   .team-logo-placeholder {
     font-size: 48px;
   }
-  
+
   .team-name {
     font-size: 14px;
     min-height: 36px;
   }
-  
+
   .team-area {
     font-size: 13px;
   }
-  
+
   .teams-pagination .ant-pagination {
     flex-wrap: wrap;
     justify-content: center;
@@ -192,11 +194,11 @@
   .teams-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .team-logo-container {
     height: 100px;
   }
-  
+
   .team-name {
     font-size: 16px;
   }
@@ -206,26 +208,26 @@
   .teams-page {
     padding: 12px;
   }
-  
+
   .page-title {
     font-size: 20px;
     margin-bottom: 16px;
   }
-  
+
   .teams-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
   }
-  
+
   .team-logo-container {
     height: 60px;
   }
-  
+
   .team-name {
     font-size: 13px;
     min-height: 32px;
   }
-  
+
   .team-area {
     font-size: 12px;
   }
