@@ -1,0 +1,182 @@
+.main-header {
+  background-color: #ffffff;
+  border-bottom: 2px solid #007bff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header-logo {
+  flex-shrink: 0;
+}
+
+.fifa-text {
+  font-size: 32px;
+  font-weight: 900;
+  color: #007bff; 
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.header-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 4px;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
+
+.nav-link.active {
+  color: #007bff;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #007bff;
+  border-radius: 2px 2px 0 0;
+}
+
+.header-search {
+  margin-left: auto;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-input .ant-input {
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+  padding: 8px 16px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.search-input .ant-input:hover {
+  border-color: #007bff;
+}
+
+.search-input .ant-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.search-input .search-icon {
+  color: #999;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo-img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .header-container {
+    gap: 24px;
+    padding: 12px 16px;
+  }
+  
+  .fifa-text {
+    font-size: 28px;
+  }
+  
+  .header-search {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 12px;
+  }
+  
+  .fifa-text {
+    font-size: 24px;
+  }
+  
+  .header-nav {
+    gap: 16px;
+  }
+  
+  .nav-link {
+    font-size: 14px;
+  }
+  
+  .header-search {
+    order: 3; 
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+  
+  .search-input .ant-input {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 8px;
+  }
+  
+  .fifa-text {
+    font-size: 20px;
+  }
+  
+  .header-nav {
+    gap: 12px;
+  }
+  
+  .nav-link {
+    font-size: 13px;
+    padding: 6px 2px;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .header-container {
+    padding: 8px 12px;
+    gap: 16px;
+  }
+  
+  .fifa-text {
+    font-size: 22px;
+  }
+  
+  .header-search {
+    max-width: 200px;
+  }
+}
