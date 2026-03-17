@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import dotenv from 'dotenv'  
@@ -18,18 +19,5 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
-  },
-  server: {
-    proxy: {
-      '/api': {
-        target: process.env.FOOTBALL_DATA_API_BASE_URL,
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-        headers: {
-          'X-Auth-Token': process.env.VITE_API_KEY?.trim() || ''
-        }
-      }
-    }
   }
 })
