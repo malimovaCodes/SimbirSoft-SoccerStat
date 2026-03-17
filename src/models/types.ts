@@ -139,7 +139,7 @@ export interface TeamMatchesResponse {
   matches: Match[];
 }
 
-interface CardProps {
+export interface CardProps {
   id: number;
   name: string;
   imageUrl?: string | null;

@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
-import type { CardProps } from '../../models/interfaces';
+import type { CardProps } from '../../models/types';
 import './Card.css';
 
-
 export function Card({ 
-  id, 
   name, 
   imageUrl, 
   subtitle, 

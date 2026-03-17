@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { DatePicker, Button, Table, Breadcrumb, Divider, Space } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import type { Match } from '../../models/interfaces';
+import type { Match } from '../../models/types';
 import { useMatchesCalendar } from '../../hooks/useMatchesCalendar';
 import { ITEMS_PER_PAGE_CALENDAR, STATUS_TRANSLATIONS } from '../../constants/constants';
 import './MatchesCalendar.css';

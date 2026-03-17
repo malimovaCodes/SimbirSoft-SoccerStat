@@ -1,5 +1,5 @@
 import { useApi } from '../../hooks/useApi';
-import type { TeamsResponse, Team } from '../../models/interfaces';
+import type { TeamsResponse, Team } from '../../models/types';
 import './TeamsPage.css';
 import { Search } from '../../components/Search/Search';
 import { Card } from '../../components/Card/Card';

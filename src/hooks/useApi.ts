@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../services/api';
-import type { UseApiResult } from '../models/interfaces';
+import type { UseApiResult } from '../models/types';
 
 export function useApi<T>(endpoint: string, dependencies: any[] = []): UseApiResult<T> {
     const [data, setData] = useState<T | null>(null);

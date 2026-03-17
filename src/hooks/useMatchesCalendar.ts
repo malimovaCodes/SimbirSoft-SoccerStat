@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
-import type { Match, MatchesResponse } from '../models/interfaces';
+import type { Match, MatchesResponse } from '../models/types';
 import { useApi } from './useApi';
 
 interface UseMatchesCalendarOptions {
