@@ -10,6 +10,10 @@ dotenv.config({ path: resolve(__dirname, '.env') })
 
 export default defineConfig({
   plugins: [react()],
+  base: '/SimbirSoft-SoccerStat/',
+  build: {
+    outDir: 'dist',
+  },
   test: {
     globals: true,
     environment: 'jsdom',
